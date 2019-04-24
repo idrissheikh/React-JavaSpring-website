@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: darkred;
+  color: black;
+  height: 70px;
+}
+.container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-right: 10px;
+}
+
+.logo {
+  font-size: 25px;
+  float: left;
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+ul {
+  float: left;
+  padding: 0;
+  text-align: right;
+}
+ul a {
+  text-decoration: none;
+  color: black;
+}
+.navlist NavLink {
+  margin: 0 15px;
+}
+.active {
+  background-color: brown;
+  color: black;
+}
+.input {
+  float: right;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: red;
+}

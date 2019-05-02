@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import ProductList from "./ProductList";
 //import ProductForm from "./ProductForm";
 import Test from "../../components/test";
@@ -6,43 +7,31 @@ import Test from "../../components/test";
 import { Link, NavLink } from "react-router-dom";
 
 import API from "../../services/api";
+import { getProducts } from "../../store/action/actions";
 
 class Products extends Component {
-  state = {
-    products: [],
-    user: {
-      role: "ADMIN"
-    }
-  };
-
-  componentDidMount = () => {
-    this.getAllProducts();
-  };
-
-  getAllProducts = () => {
-    API.getAllProducts()
-      .then(products => this.setState({ products: products }))
-      .catch(err => console.log(err));
-  };
-
   delete = id => {
     API.deleteProduct(id)
-      .then(() => this.getAllProducts())
+      .then(() => this.props.getAllProducts())
       .catch(err => console.log(err));
   };
 
+  componentWillMount() {
+    this.props.getAllProducts();
+  }
+
   render() {
-    const shoes = this.state.products.filter(
+    const shoes = this.props.products.filter(
       products => products.category === "shoes"
     );
-    const mobiles = this.state.products.filter(
+    const mobiles = this.props.products.filter(
       products => products.category === "mobile"
     );
 
     return (
       <div className="body">
         <div className=" btn-container">
-          {this.state.user.role == "ADMIN" && (
+          {this.props.user && this.props.user.role == "ADMIN" && (
             <Link to="/productForm">
               <button
                 onClick={this.navigateProductForm}
@@ -61,4 +50,20 @@ class Products extends Component {
   }
 }
 
-export default Products;
+const mapStateToProps = state => {
+  return {
+    products: state.rootReducer.products,
+    user: state.rootReducer.user
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getAllProducts: () => dispatch(getProducts())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Products);

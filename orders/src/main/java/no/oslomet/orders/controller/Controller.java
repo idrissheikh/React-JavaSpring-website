@@ -1,21 +1,25 @@
 package no.oslomet.orders.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import no.oslomet.orders.model.Orders;
-import no.oslomet.orders.model.Shipping;
 import no.oslomet.orders.service.OrdersService;
-import no.oslomet.orders.service.ShippingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.persistence.criteria.Order;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class Controller {
 
 
-    @Autowired
-    ShippingService shippingService;
 
     @Autowired
     OrdersService ordersService;
@@ -41,7 +45,22 @@ public class Controller {
     }
 
     @PostMapping("/orders")
-    public Orders saveOrder(@RequestBody Orders newOrder) {
+    public Orders saveOrder(@RequestBody HashMap<String, Object> body ) throws IOException {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+         String user_id = body.get("user_id").toString();
+         String date = body.get("date").toString();
+
+        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        String json = ow.writeValueAsString(body.get("productList"));
+
+        List<String> products = Arrays.asList(objectMapper.readValue(json, String[].class));
+
+         Orders newOrder = new Orders();
+         newOrder.setDate(date);
+         newOrder.setUser_id(user_id);
+         newOrder.setProductList(products);
+
         return ordersService.saveOrder(newOrder);
     }
 
@@ -50,36 +69,13 @@ public class Controller {
         return ordersService.getAllOrders();
     }
 
-    @PutMapping("/orders/{id}")
-    public Orders updateOrder(@PathVariable long id, @RequestBody Orders orders) {
-        orders.setId(id);
-        //orders.setDate();
-        // return  ordersService.UpdateOrderById(id);
-        return null;
+
+
+    @GetMapping("/orderHistory/user/{id}")
+    public List<Orders> getOrderByUser(@PathVariable long id) {
+        return ordersService.getOrderByUser(id);
     }
 
-    /* --------------------------- */
-
-    @GetMapping("/shipping/{id}")
-    public Shipping getShippingById(@PathVariable long id) {
-        return shippingService.getShippingById(id);
-    }
-
-    @DeleteMapping("/shipping/{id}")
-    public void deleteshippingById(@PathVariable long id) {
-        shippingService.deleteShipping(id);
-    }
-
-    @PostMapping("/shipping")
-    public Shipping saveShipping(@RequestBody Shipping newShipping) {
-        return shippingService.saveShipping(newShipping);
-    }
-
-    @PutMapping("/shipping/{id}")
-    public Shipping updateShipping(@PathVariable long id, @RequestBody Shipping shipping) {
-        shipping.setId(id);
-        return shippingService.saveShipping(shipping);
-    }
 
 
 }

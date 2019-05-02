@@ -11,8 +11,9 @@
 .card-title {
   flex-wrap: wrap;
   word-wrap: break-word;
-  white-space: nowrap;
+  white-space: wrap;
   overflow-x: hidden;
+  color: red;
 }
 
 .btn-container {

@@ -14,6 +14,11 @@ import Login from "./components/Users/Login";
 import Register from "./components/Users/Register";
 import configStore from "./store/configStore";
 import { Provider } from "react-redux";
+import Cart from "./components/cart/Cart";
+import ShippingfForm from "./components/cart/ShippingfForm";
+import OrderHistory from "./components/cart/OrderHistory";
+import UserProfile from "./components/Users/UserProfile";
+import AdminPage from "./components/Users/AdminPage";
 
 const store = configStore();
 
@@ -43,7 +48,6 @@ class App extends Component {
               {/* <section style={sectionStyle}>
               
             </section> */}
-
               <Route exact path="/" component={Home} />
               <Route exact path="/products" component={Products} />
               <Route path="/about" component={About} />
@@ -51,9 +55,13 @@ class App extends Component {
               <Route path="/editForm/:id" component={EditFrom} />
               <Route path="/logIn/" component={Login} />
               <Route path="/register/" component={Register} />
-              <Route to="/signup">
-                <h2>Signup</h2>
-              </Route>
+              <Route path="/cart/" component={Cart} />
+              <Route path="/shippingform/" component={ShippingfForm} />
+              <Route path="/orderHistory/" component={OrderHistory} />
+              <Route path="/userProfile/" component={UserProfile} />
+              <Route path="/adminPage/" component={AdminPage} />
+
+              <Route to="/signup" />
             </div>
           </BrowserRouter>
         </div>

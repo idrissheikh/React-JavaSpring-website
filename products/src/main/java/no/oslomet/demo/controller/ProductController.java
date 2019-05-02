@@ -139,5 +139,21 @@ public class ProductController {
 
     }
 
+    @GetMapping("/products/decrease/{id}")
+    public Product decreaseQuantity(@PathVariable long id ){
+        Product product = productService.getProductById(id);
+        product.setQuantity(product.getQuantity() -1);
+        return productService.saveProduct(product);
+
+    }
+
+    @GetMapping("/products/rate/{id}/{numberOfRate}")
+    public Product rateProduct(@PathVariable long id, @PathVariable("numberOfRate") long numberOfRate ){
+        Product product = productService.getProductById(id);
+        product.setRate(numberOfRate);
+        return productService.saveProduct(product);
+
+    }
+
 
 }

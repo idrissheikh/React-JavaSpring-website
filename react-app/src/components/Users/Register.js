@@ -14,6 +14,8 @@ class Register extends Component {
       email: "",
       password: "",
       confirmPassword: "",
+      address: "",
+      postalCode: "",
       newUser: null
     };
   }
@@ -42,21 +44,36 @@ class Register extends Component {
     event.preventDefault();
 
     const user = {
+      user_id: this.state.id,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      shippingList: []
     };
 
-    console.log("new user: ", user);
+    const shipping = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      address: this.state.address,
+      city: this.state.city,
+      postalCode: this.state.postalCode
+    };
 
     this.setState({ isLoading: true });
-    API.postUser(user)
-      .then(newUser => {
-        console.log("new User: ", newUser);
-        this.setState({
-          isLoading: false,
-          newUser
+    API.postShipping(shipping)
+      .then(newShipping => {
+        user["shippingList"].push(newShipping.id);
+        API.postUser(user).then(newUser => {
+          API.updateShipping(newShipping.id, newUser.id, newShipping).then(() =>
+            this.setState(
+              {
+                isLoading: false,
+                newUser
+              },
+              () => this.props.history.push("/products")
+            )
+          );
         });
       })
 
@@ -67,6 +84,14 @@ class Register extends Component {
           newUser: null
         });
       });
+
+    //   .catch(err => {
+    //     console.log(err);
+    //     this.setState({
+    //       isLoading: false,
+    //       newUser: null
+    //     });
+    //   });
 
     this.setState({ isLoading: false });
   };
@@ -182,6 +207,34 @@ class Register extends Component {
               onChange={event => this.handleChange(event, "confirmPassword")}
             />
           </div>
+          <div className="form-group" bsSize="large">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Address"
+              value={this.state.address}
+              onChange={event => this.handleChange(event, "address")}
+            />
+          </div>
+          <div className="form-group" bsSize="large">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="city"
+              value={this.state.city}
+              onChange={event => this.handleChange(event, "city")}
+            />
+          </div>
+          <div className="form-group" bsSize="large">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="postalcode"
+              value={this.state.postalCode}
+              onChange={event => this.handleChange(event, "postalCode")}
+            />
+          </div>
+
           <div className="form-group">
             <label className="checkbox-inline">
               <input type="checkbox" required="required" /> I accept the{" "}

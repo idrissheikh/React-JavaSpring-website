@@ -27,14 +27,16 @@ public class Product {
     private long quantity;
     private long rate;
     private String category;
+    private double price;
 
 
-    public Product(String name, String releaseYear, long rate, long quantity, String category) {
+    public Product(String name, String releaseYear, long rate, long quantity, String category, double price ) {
 
         this.name = name;
         this.quantity = quantity;
         this.category = category;
         this.rate = rate;
+        this.price = price;
     }
 
 

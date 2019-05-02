@@ -39,6 +39,18 @@ class Nav extends Component {
           <NavLink className="mx-2" to="/register">
             register
           </NavLink>
+
+          {this.props.user && (
+            <NavLink className="mx-2" to="/orderHistory">
+              Order history
+            </NavLink>
+          )}
+
+          {this.props.user && (
+            <NavLink className="mx-2" to="/userProfile">
+              Profile
+            </NavLink>
+          )}
         </div>
 
         <div className="col-md-1 ml-auto ">
@@ -51,6 +63,16 @@ class Nav extends Component {
             </NavLink>
           </div>
         )}
+
+        <div className="col-md-1 ml-auto ">
+          <NavLink className="logIn" exact to="/cart">
+            <span class="badge badge-light">
+              {" "}
+              {this.props.cartItems.length}{" "}
+            </span>
+            Cart
+          </NavLink>
+        </div>
 
         {this.props.user && (
           <div className="col-md-1 ml-auto ">
@@ -71,7 +93,8 @@ class Nav extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.rootReducer.user
+    user: state.rootReducer.user,
+    cartItems: state.rootReducer.cartItems
   };
 };
 

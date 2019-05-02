@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/orders/orders.iml" filepath="$PROJECT_DIR$/orders/orders.iml" />
       <module fileurl="file://$PROJECT_DIR$/products/products.iml" filepath="$PROJECT_DIR$/products/products.iml" />
       <module fileurl="file://$PROJECT_DIR$/react-app/react-app.iml" filepath="$PROJECT_DIR$/react-app/react-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shipping/shipping.iml" filepath="$PROJECT_DIR$/shipping/shipping.iml" />
     </modules>
   </component>
 </project>

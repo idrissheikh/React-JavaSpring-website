@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -34,6 +35,22 @@ public class OrdersService {
     public Orders UpdateOrderById(Orders orders) {
         return ordersRepository.save(orders);
     }
+
+
+
+    public List<Orders> getOrderByUser(long id) {
+
+        System.out.println("id received: " + id);
+        List<Orders> list = new ArrayList<>();
+        for(Orders s: ordersRepository.findAll()){
+        if(Long.parseLong(s.getUser_id()) == id){
+            list.add(s);
+        }
+
+
+    }
+        return list;
+}
 
 
 }

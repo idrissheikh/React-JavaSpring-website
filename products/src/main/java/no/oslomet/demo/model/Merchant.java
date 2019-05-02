@@ -20,6 +20,10 @@ public class Merchant {
     private String lastName;
     private String email;
     private String passWord;
+    private String address;
+    private String city;
+    private int postalCode;
+
 
 
     //product_merchant
@@ -33,8 +37,12 @@ public class Merchant {
                 "id=" + id +
                 ", fristName='" + fristName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
                 ", passWord='" + passWord + '\'' +
-
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", postalCode=" + postalCode +
+                ", productList=" + productList +
                 '}';
     }
 }

@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -14,20 +16,26 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String date;
-    @Transient  // Forteller Hibernate å ignorere å mappe
-    private User user;
+    private String user_id;
 
-    //product_Orders
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "Shipping_id")
-    private Shipping shipping;
+    @ElementCollection
+    private List<String> productList = new ArrayList<>();
+
+    public Orders(String date, String user_id, List<String> productList) {
+        this.date = date;
+        this.user_id = user_id;
+        this.productList = productList;
+    }
 
     @Override
     public String toString() {
         return "Orders{" +
                 "id=" + id +
                 ", date='" + date + '\'' +
-                ", shipping=" + shipping +
+                ", user_id='" + user_id + '\'' +
+                ", productList=" + productList +
                 '}';
     }
+
+
 }

@@ -16,6 +16,7 @@ class Register extends Component {
       confirmPassword: "",
       address: "",
       postalCode: "",
+      roles: "CUSTOMER",
       newUser: null
     };
   }
@@ -42,15 +43,18 @@ class Register extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-
+    console.log("rol: ", this.state.roles);
     const user = {
       user_id: this.state.id,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       email: this.state.email,
       password: this.state.password,
+      roles: this.state.roles,
       shippingList: []
     };
+
+    console.log("user to send: ", user);
 
     const shipping = {
       firstName: this.state.firstName,
@@ -144,6 +148,12 @@ class Register extends Component {
   }
 */
 
+  changeRole = event => {
+    const role = event.target.value;
+    console.log("role:", role);
+    this.setState({ roles: role });
+  };
+
   render() {
     return (
       <div className="signup-form">
@@ -235,6 +245,21 @@ class Register extends Component {
             />
           </div>
 
+          <div class="input-group">
+            <select
+              onChange={event =>
+                this.setState({ roles: event.target.value }, () =>
+                  console.log("updated role ... ")
+                )
+              }
+              class="custom-select"
+              id="inputGroupSelect04"
+              aria-label="Example select with button addon"
+            >
+              <option value="CUSTOMER">CUSTOMER</option>
+              <option value="MERCHANT">MERCHANT</option>
+            </select>
+          </div>
           <div className="form-group">
             <label className="checkbox-inline">
               <input type="checkbox" required="required" /> I accept the{" "}

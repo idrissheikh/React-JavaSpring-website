@@ -21,15 +21,26 @@ export default class API {
     });
   }
 
+  static getAllMyProduct(id) {
+    let url = "http://localhost:9997/myproducts/" + id;
+    return new Promise((resolve, reject) => {
+      fetch(url)
+        .then(res => res.json())
+        .then(product => resolve(product))
+        .catch(error => reject(error));
+    });
+  }
+
   static postProduct(body) {
     let url = "http://localhost:9997/products";
+    let formData = new FormData();
+    for (let key of Object.keys(body)) {
+      formData.append(key, body[key]);
+    }
     return new Promise((resolve, reject) => {
       fetch(url, {
         method: "POST", // or 'PUT'
-        body: JSON.stringify(body), // data can be `string` or {object}!
-        headers: {
-          "Content-Type": "application/json"
-        }
+        body: formData
       })
         .then(res => res.json())
         .then(data => resolve(data))
@@ -67,7 +78,7 @@ export default class API {
   }
 
   static getUserById(id) {
-    let url = "http://localhost:9997/merchant/" + id;
+    let url = "http://localhost:9090/users/" + id;
     return new Promise((resolve, reject) => {
       fetch(url)
         .then(res => res.json())
@@ -196,16 +207,11 @@ export default class API {
             for (let id of data.productList) {
               API.getAllProductById(id).then(product => products.push(product));
             }
-
             const totalAmount = API.getTotalPrice(products);
             order["totalAmount"] = totalAmount;
-            console.log("current order: ", order);
             order["products"] = products;
-            console.log("p before push ", products);
             orderHistory.push(order);
           }
-          console.log("before resolve: ", orderHistory);
-
           resolve(orderHistory);
         })
         .catch(err => reject(err));
@@ -218,7 +224,7 @@ export default class API {
   }
 
   static deleteUser(id) {
-    let url = "http://localhost:9090/user/" + id;
+    let url = "http://localhost:9090/users/" + id;
     return new Promise((resolve, reject) => {
       fetch(url, {
         method: "DELETE" // or 'PUT'
@@ -241,6 +247,68 @@ export default class API {
         .then(res => res.json())
         .then(data => resolve(data))
         .catch(err => reject(err));
+    });
+  }
+
+  static setRating(productId, numberOfRatings, user_id) {
+    let url = `http://localhost:9997/products/rate/${productId}/${numberOfRatings}/${user_id}`;
+    return new Promise((resolve, reject) => {
+      fetch(url)
+        .then(res => res.json())
+        .then(() => resolve())
+        .catch(err => reject(err));
+    });
+  }
+
+  static getAllUsers() {
+    let url = "http://localhost:9090/users/";
+    return new Promise((resolve, reject) => {
+      fetch(url)
+        .then(res => res.json())
+        .then(users => {
+          console.log("users to resolve..", users);
+          resolve(users);
+        })
+        .catch(error => reject(error));
+    });
+  }
+
+  static changePassword(id, password) {
+    let url = "http://localhost:9090/users/changePassword";
+    const formData = new FormData();
+    formData.append("id", id);
+    formData.append("password", password);
+    return new Promise((resolve, reject) => {
+      fetch(url, {
+        method: "POST", // or 'PUT'
+        body: formData // data can be `string` or {object}!
+      })
+        .then(res => res.json())
+        .then(data => resolve(data))
+        .catch(err => reject(err));
+    });
+  }
+
+  static getUserShippings(user) {
+    let shippingList = [];
+    return new Promise((resolve, reject) => {
+      for (let id of user.shippingList) {
+        API.getshippingById(id)
+          .then(shipping => shippingList.push(shipping))
+          .catch(err => reject(err));
+      }
+      console.log("reolve now: ", shippingList);
+      resolve(shippingList);
+    });
+  }
+
+  static getShippings() {
+    let url = "http://localhost:9998/shipping/";
+    return new Promise((resolve, reject) => {
+      fetch(url)
+        .then(res => res.json())
+        .then(shippings => resolve(shippings))
+        .catch(error => reject(error));
     });
   }
 }

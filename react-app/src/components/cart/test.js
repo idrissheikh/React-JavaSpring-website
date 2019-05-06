@@ -12,11 +12,9 @@ class Test extends Component {
 
   pay = () => {
     const user_id = this.props.user.id;
-    const date = new Date().toString();
-
+    const date = new Date().toLocaleDateString();
     let productList = [];
     for (let item of this.props.items) {
-      console.log("value you are typing: ", item);
       productList.push(item.id);
     }
 
@@ -26,99 +24,55 @@ class Test extends Component {
       productList
     };
 
-    API.postOrder(body).then(newOrder => {
-      for (let id of newOrder.productList) {
-        API.decreaseProductQuantity(id).then(() => this.props.getAllProducts());
-      }
-    });
+    console.log("body: ", body);
+
+    API.postOrder(body)
+      .then(newOrder => {
+        for (let id of newOrder.productList) {
+          API.decreaseProductQuantity(id).then(() => {
+            this.props.getAllProducts();
+            this.props.deleteCartItems([]);
+            this.props.navigate();
+          });
+        }
+      })
+      .catch(err => console.log(err));
   };
 
   renderTab2 = shippings => {
-    const size = Object.keys(shippings).length;
-    if (size > 0) {
-      return shippings.map((shipping, key) => {
-        const fullName = shipping[key].firstName + " " + shipping[key].lastName;
-        const fullAddress =
-          shipping[key].address +
-          " " +
-          shipping[key].postalCode +
-          " " +
-          shipping[key].city;
-        return (
-          <div class="card">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item text-primary">{fullName}</li>
-              <li class="list-group-item text-dark">{fullAddress}</li>
-              <div class="list-group-item text-dark justify-content-around ">
-                <div
-                  class="input-group "
-                  style={{
-                    padding: 0,
-                    margin: 0
-                  }}
-                >
-                  <div class="input-group">
-                    <div class="input-group  row-md-12">
-                      <div class="input-group-prepend col-sm-6">
-                        <button
-                          type="button"
-                          class="btn btn-outline-primary"
-                          style={{ padding: 0, margin: 0, width: "200%" }}
-                        >
-                          Velg
-                        </button>
+    return (
+      <div class="container">
+        <h1>Radio Buttons as Cards</h1>
 
-                        <input
-                          type="checkbox"
-                          aria-label="Checkbox for following text input"
-                        />
-                      </div>
-                      <div
-                        class="input-group-prepend col-sm-6"
-                        style={{
-                          padding: 0,
-                          margin: 0
-                        }}
-                      >
-                        {/* <Link to="/productForm"> */}
-                        <button
-                          onClick={() =>
-                            this.setState({ showShippingForm: true })
-                          }
-                          type="button"
-                          class="btn btn-outline-primary"
-                          style={{
-                            padding: 0,
-                            margin: 0,
-                            width: "100%"
-                          }}
-                        >
-                          Add ny address
-                        </button>
-                        {/* </Link> */}
-                      </div>
-                    </div>
+        <div class="row text-primary">
+          {shippings.map((shipping, key) => {
+            const fullName = shipping.firstName + " " + shipping.lastName;
+            const address = shipping.address;
+            const city = shipping.postalCode + " " + shipping.city;
+            return (
+              <div key={key} class="col-md-6 ">
+                <label style={{ borderCollapse: "red", borderWidth: 2 }}>
+                  <input
+                    onChange={e => console.log(e.target.value)}
+                    type="radio"
+                    value={shipping.id}
+                    name="product"
+                  />
+
+                  <div class="card " style={{ width: "18rem" }}>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item text-primary">{fullName}</li>
+                      <li class="list-group-item text-primary">{address}</li>
+                      <li class="list-group-item text-primary">{city}</li>
+                    </ul>
                   </div>
-                </div>
+                </label>
               </div>
-            </ul>
-          </div>
-        );
-      });
-
-      /*  return (
-        
-      ); */
-    } else {
-      return (
-        <div>
-          <h3 className="text-primary">Fortsett som gjest ... </h3>
-          <ShippingfForm
-            onShippingAdded={() => this.setState({ showShippingForm: false })}
-          />
+            );
+          })}
         </div>
-      );
-    }
+      </div>
+    );
   };
 
   render() {
@@ -129,7 +83,7 @@ class Test extends Component {
     const postalCode = this.props.user ? this.props.user.postalCode : "";
 
     console.log("shippingList props: ", this.props.shippingList);
-    console.log("shippingList props: ", this.props.user);
+    console.log("shippingList : ", this.props.userShippings);
 
     return (
       <div className="">
@@ -177,7 +131,7 @@ class Test extends Component {
                     href="#tab-3"
                     role="tab"
                   >
-                    Tab 3
+                    pay
                   </a>
                 </li>
               </ul>
@@ -246,29 +200,7 @@ class Test extends Component {
                           />
                         )}
                         {!this.state.showShippingForm &&
-                          this.renderTab2(this.props.shippingList)}
-
-                        {/* {this.props.shippingList.map((shipping, key) => (
-                          <div class="card" style={{ backgroundColor: "blue" }}>
-                            <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">
-                                Card subtitle
-                              </h6>
-                              <p class="card-text">
-                                Some quick example text to build on the card
-                                title and make up the bulk of the card's
-                                content.
-                              </p>
-                              <a href="#" class="card-link">
-                                Card link
-                              </a>
-                              <a href="#" class="card-link">
-                                Another link
-                              </a>
-                            </div>
-                          </div>
-                        ))} */}
+                          this.renderTab2(this.props.userShippings)}
                       </div>
                     </div>
                     <div className="tab-pane" id="tab-3">

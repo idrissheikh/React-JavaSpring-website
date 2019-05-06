@@ -35,6 +35,8 @@ class ShippingfForm extends Component {
       user_id: this.props.user.id
     };
 
+    console.log("shipping to add ", shipping);
+
     console.log(shipping);
 
     API.postShipping(shipping)
@@ -62,7 +64,7 @@ class ShippingfForm extends Component {
     return (
       <div className="shipping-form">
         <form method="post" onSubmit={this.nyShipppingsubmet}>
-          <div class="input-group mb-2 col-sm-6">
+          <div class="input-group mb-2 col-sm-12">
             <div class="input-group mb-1">
               <input
                 type="text"
@@ -112,11 +114,8 @@ class ShippingfForm extends Component {
                 onChange={event => this.handleChange(event, "postalCode")}
               />
             </div>
-            <div className="form-group">
-              <button
-                type="submit"
-                className="btn btn-success btn-lg btn-block"
-              >
+            <div className="col-sm-12 my-3 mx-auto">
+              <button type="submit" className="btn btn-success btn-block">
                 Save
               </button>
             </div>

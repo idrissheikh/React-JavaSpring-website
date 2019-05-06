@@ -5,31 +5,24 @@ import API from "../../services/api";
 import { getOrderHistory } from "../../store/action/actions";
 
 class OrderHistory extends Component {
-  state = {
-    myOrders: []
-  };
-
-  componentWillMount() {
-    console.log("inside will mount .. orderhistory");
-    const id = this.props.user ? this.props.user.id : 2;
-    this.props.getOrderHistory(id);
-    API.getOrderHistoryByUser(2).then(orders =>
-      this.setState({ myOrders: orders }, () =>
-        console.log("update state: ", this.state.myOrders)
-      )
-    );
-  }
+  componentWillMount() {}
 
   renderProductList = products => {
-    console.log("renderP: ", products);
-
-    products.map((product, key) => <td>{products[key].name}</td>);
+    return Object.keys(products).map((product, key) => {
+      return <h6 key={key}>{products[key].name} </h6>;
+    });
   };
+
+  getTotalAmount(order) {
+    let sum = 0;
+    for (let product of order.products) sum += product.price;
+    return sum;
+  }
 
   render() {
     return (
       <div>
-        <div className="col-sm-8 mx-auto my-3">
+        <div className="col-sm-10 mx-auto my-3">
           <table class="table">
             <thead>
               <tr>
@@ -40,12 +33,13 @@ class OrderHistory extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.state.myOrders.map((order, key) => (
+              {this.props.orderHistory.map((order, key) => (
                 <tr>
                   <th scope="row">{order.date}</th>
-                  {this.renderProductList(order.products)}
+                  <th>{this.renderProductList(order.products)} </th>
+
                   <td>{order.quantity}</td>
-                  <td>{order.totalAmount}</td>
+                  <td>{this.getTotalAmount(order)}</td>
                 </tr>
               ))}
             </tbody>

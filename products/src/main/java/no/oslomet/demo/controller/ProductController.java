@@ -2,24 +2,32 @@ package no.oslomet.demo.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import no.oslomet.demo.model.Merchant;
 import no.oslomet.demo.model.Product;
 import no.oslomet.demo.repository.ProductRepository;
-import no.oslomet.demo.service.MerchantService;
 import no.oslomet.demo.service.ProductService;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
 
 @RestController
 @CrossOrigin
 public class ProductController {
 
-    @Autowired
-    MerchantService merchantService;
+
+        private static String IMAGE_PATH="/images/";
+
+
+    private String EXTERNAL_IMAGE_PATH="http://localhost:9997/images/";
+    public static String uploadDirectory = System.getProperty("user.dir")+"/react-app/src/assets";
+    //src/main/resources/static/images   /uploads
+    public long indice = 0;
+
 
     @Autowired
     ProductService productService;
@@ -30,35 +38,6 @@ public class ProductController {
     public String home() {
         return "This is a rest controller  ";
     }
-
-    @GetMapping("/merchants")
-    public List<Merchant> getAllMerchant() {
-
-        return merchantService.getAllMerchant();
-    }
-
-    @GetMapping("/merchant/{id}")
-    public Merchant getMerchantById(@PathVariable long id) {
-        return merchantService.getMerchantById(id);
-
-    }
-
-    @DeleteMapping("/merchant/{id}")
-    public void deleteMerchantById(@PathVariable long id) {
-        merchantService.deleteMerchant(id);
-    }
-
-    @PostMapping("/merchants")
-    public Merchant saveMerchant(@RequestBody Merchant newMerchant) {
-        return merchantService.saveMerchant(newMerchant);
-    }
-
-    @PutMapping("/merchants/{id}")
-    public Merchant updateMerchant(@PathVariable long id, @RequestBody Merchant newMerchant) {
-        newMerchant.setId(id);
-        return merchantService.updateMerchant(newMerchant);
-    }
-
 
     @GetMapping("/products")
     public List<Product> getAllProdect() {
@@ -80,63 +59,42 @@ public class ProductController {
     public Product updateProductById(@PathVariable long id, @RequestBody LinkedHashMap<String, Object> body) {
         ObjectMapper objectMapper = new ObjectMapper();
         Product product = objectMapper.convertValue(body.get("product"), Product.class);
-        Merchant merchant = objectMapper.convertValue(body.get("merchant"), Merchant.class);
-        product.setMerchant(merchant);
         return productService.saveProduct(product);
     }
 
 
-    @PostMapping("/products")
-    public Product saveProductById(@RequestBody Map<String, Object> body) {
-        // System.out.println("body: "+ body.toString());
-        ObjectMapper mapper1 = new ObjectMapper();
-        ObjectMapper mapper2 = new ObjectMapper();
-
-        Product product = mapper1.convertValue(body.get("product"), Product.class);
-        Merchant merchant = mapper2.convertValue(body.get("merchant"), Merchant.class);
-
-        productService.saveProduct(product);
-        Merchant merchantdb = merchantService.getMerchantByEmail(merchant.getEmail());
-        System.out.println("merchantdb:" + merchantdb);
-
-        if (merchantdb == null) {
-            System.out.println("not found ");
-            // save merchant
-            merchantService.saveMerchant(merchant);
-
-            List<Product> merchantProducts = new ArrayList<>();
-            merchantProducts.add(product);
-            merchant.setProductList(merchantProducts);
-            product.setMerchant(merchant);
 
 
-        } else {
-            // Hent alle sine produkter og lagre det i en lis
-            productService.getAllProduct();
+    @RequestMapping(value="/products",
+            method=RequestMethod.POST,
+            consumes= MediaType.MULTIPART_FORM_DATA_VALUE)
+    public Product saveProductById(@RequestParam("file") MultipartFile file,
+                                   Product newProduct) {
+        //Product product = new Product(name,description , quantity,price, category,merchant_id);
+        StringBuilder fileName = new StringBuilder();
+        Path fileNameAndPath = Paths.get(uploadDirectory, indice+file.getOriginalFilename());
+        fileName.append(file.getOriginalFilename());
 
-//            List<Product> merchantProductsStream = productService.getAllProduct()
-//                    .stream().filter(currentProduct -> currentProduct.getMerchant().getEmail().equals(merchant.getEmail()))
-//                    .collect(Collectors.toList());
+        try {
+            Files.write(fileNameAndPath, file.getBytes());
 
-            List<Product> merchantProducts = new ArrayList<>();
-
-            for (Product p : productService.getAllProduct()) {
-                if (p.getMerchant() != null) {
-                    if (p.getMerchant().getEmail().equals(merchant.getEmail())) {
-                        merchantProducts.add(p);
-                    }
-                }
-
-            }
-
-            List<Product> productList = productService.getAllProduct();
-            productList.add(product);
-            merchantService.saveMerchant(merchant);
-
-
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return productService.saveProduct(product);
 
+        newProduct.setImagePath(""+indice+fileName); //fileNameAndPath
+
+
+        /*
+       if(productService.saveImage(file,IMAGE_PATH+file.getOriginalFilename()));{
+            newProduct.setImage(EXTERNAL_IMAGE_PATH+file.getOriginalFilename());
+            //productService.saveImage(file,IMAGE_PATH+file.getOriginalFilename());
+        //}
+
+
+
+        */
+        return productService.saveProduct(newProduct);
     }
 
     @GetMapping("/products/decrease/{id}")
@@ -147,13 +105,34 @@ public class ProductController {
 
     }
 
-    @GetMapping("/products/rate/{id}/{numberOfRate}")
-    public Product rateProduct(@PathVariable long id, @PathVariable("numberOfRate") long numberOfRate ){
+    @GetMapping("/products/rate/{id}/{numberOfRate}/{user_id}")
+    public Product rateProduct(@PathVariable long id,
+                               @PathVariable("numberOfRate") String numberOfRate,
+                               @PathVariable("user_id") String user_id){
         Product product = productService.getProductById(id);
-        product.setRate(numberOfRate);
+        product.getRatings().put(user_id, numberOfRate);
         return productService.saveProduct(product);
 
     }
+
+    public double getAverageRating(HashMap<Long, Double> ratings){
+        double sum=0;
+        Set<Long> keys = ratings.keySet();
+        for(long key: keys){
+            sum+= ratings.get(key);
+        }
+
+        return sum > 0 ?sum/ratings.size(): 0;
+
+    }
+
+    @GetMapping("/myproducts/{id}")
+    public List<Product> getMyProducts(@PathVariable long id) {
+        return productService.getMyProducts(id);
+    }
+
+
+
 
 
 }

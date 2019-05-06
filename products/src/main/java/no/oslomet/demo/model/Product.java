@@ -6,6 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 
 
 @Entity
@@ -13,32 +17,36 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Product {
 
-
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "Merchant_id")
-    @JsonIgnore
-    private Merchant merchant;
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private long quantity;
-    private long rate;
     private String category;
     private double price;
+    private HashMap<String, String> ratings = new HashMap<>();
+    private String imagePath;
+    private long merchant_id;
 
 
-    public Product(String name, String releaseYear, long rate, long quantity, String category, double price ) {
+
+    public Product(String name, long quantity, String category, double price, long merchant_id ) {
 
         this.name = name;
         this.quantity = quantity;
         this.category = category;
-        this.rate = rate;
         this.price = price;
+        this.merchant_id= merchant_id;
     }
 
+    public Product(String name, long quantity, String category, double price, String imagePath ) {
+
+        this.name = name;
+        this.quantity = quantity;
+        this.category = category;
+        this.price = price;
+        this.imagePath =imagePath;
+    }
 
     @Override
     public String toString() {
@@ -46,7 +54,6 @@ public class Product {
                 " id=" + id +
                 ", name='" + name + '\'' +
                 ", quantity=" + quantity +
-                ", rate=" + rate +
                 ", category='" + category + '\'' +
                 '}';
 

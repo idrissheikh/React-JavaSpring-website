@@ -4,7 +4,9 @@ import {
   setProductToCart,
   setUser,
   removeProductFromCart,
-  getProducts
+  getProducts,
+  getShippings,
+  clearCartItems
 } from "../../store/action/actionBundle";
 import CheckoutForm from "./CheckoutForm";
 import Test from "./test";
@@ -13,6 +15,10 @@ import API from "../../services/api";
 class Cart extends Component {
   state = {
     shippingList: []
+  };
+
+  componentWillMount = () => {
+    this.props.getShippings();
   };
 
   componentDidMount() {
@@ -71,14 +77,22 @@ class Cart extends Component {
     );
   };
   render() {
+    const id = this.props.user ? this.props.user.id : 0;
+    const userShippings = this.props.shippings.filter(
+      shipping => shipping.user_id == id
+    );
+    console.log("found: ", userShippings);
     return (
       <div>
         <Test
+          navigate={() => this.props.history.push("/orderHistory")}
+          deleteCartItems={() => this.props.clearCartItems()}
           items={this.props.cartItems}
           user={this.props.user}
           removeItem={this.props.removeItem}
           shippingList={this.state.shippingList}
           getAllProducts={this.props.getAllProducts}
+          userShippings={userShippings}
         />
       </div>
     );
@@ -88,14 +102,17 @@ class Cart extends Component {
 const mapStateToProps = state => {
   return {
     cartItems: state.rootReducer.cartItems,
-    user: state.rootReducer.user
+    user: state.rootReducer.user,
+    shippings: state.rootReducer.shippings
   };
 };
 const mapDispatchToProps = dispatch => {
   return {
     cart_Item: item => dispatch(setProductToCart(item)),
     removeItem: item => dispatch(removeProductFromCart(item)),
-    getAllProducts: () => dispatch(getProducts())
+    getAllProducts: () => dispatch(getProducts()),
+    getShippings: () => dispatch(getShippings()),
+    clearCartItems: () => dispatch(clearCartItems())
   };
 };
 export default connect(

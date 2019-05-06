@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Nav from "./components/Nav";
 import { BrowserRouter, Route } from "react-router-dom";
-import Home from "./components/Home";
 import About from "./components/About";
 import Products from "./components/products/Products";
 import API from "./services/api";
@@ -19,8 +18,10 @@ import ShippingfForm from "./components/cart/ShippingfForm";
 import OrderHistory from "./components/cart/OrderHistory";
 import UserProfile from "./components/Users/UserProfile";
 import AdminPage from "./components/Users/AdminPage";
+import MyProducts from "./components/merchant/MyProducts";
+import { PersistGate } from "redux-persist/integration/react";
 
-const store = configStore();
+const { store, persistor } = configStore();
 
 var sectionStyle = {
   width: "100%",
@@ -41,30 +42,33 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div>
-          <BrowserRouter>
-            <div className="App">
-              <Nav />
-              {/* <section style={sectionStyle}>
-              
-            </section> */}
-              <Route exact path="/" component={Home} />
-              <Route exact path="/products" component={Products} />
-              <Route path="/about" component={About} />
-              <Route path="/productForm" component={ProductFrom} />
-              <Route path="/editForm/:id" component={EditFrom} />
-              <Route path="/logIn/" component={Login} />
-              <Route path="/register/" component={Register} />
-              <Route path="/cart/" component={Cart} />
-              <Route path="/shippingform/" component={ShippingfForm} />
-              <Route path="/orderHistory/" component={OrderHistory} />
-              <Route path="/userProfile/" component={UserProfile} />
-              <Route path="/adminPage/" component={AdminPage} />
+        <PersistGate loading={null} persistor={persistor}>
+          <div>
+            <BrowserRouter>
+              <div className="App">
+                <Nav />
+                {/* <section style={sectionStyle}>
 
-              <Route to="/signup" />
-            </div>
-          </BrowserRouter>
-        </div>
+            </section> */}
+                <Route exact path="/" component={Products} />
+                <Route exact path="/products" component={Products} />
+                <Route path="/about" component={About} />
+                <Route path="/productForm" component={ProductFrom} />
+                <Route path="/editForm/:id" component={EditFrom} />
+                <Route path="/logIn/" component={Login} />
+                <Route path="/register/" component={Register} />
+                <Route path="/cart/" component={Cart} />
+                <Route path="/shippingform/" component={ShippingfForm} />
+                <Route path="/orderHistory/" component={OrderHistory} />
+                <Route path="/userProfile/:id" component={UserProfile} />
+                <Route path="/adminPage/" component={AdminPage} />
+                <Route path="/myproducts/:id" component={MyProducts} />
+
+                <Route to="/signup" />
+              </div>
+            </BrowserRouter>
+          </div>
+        </PersistGate>
       </Provider>
     );
   }

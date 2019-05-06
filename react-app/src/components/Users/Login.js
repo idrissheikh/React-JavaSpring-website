@@ -4,7 +4,11 @@ import { Button, FormGroup, FormControl } from "react-bootstrap";
 import "./User.css";
 import API from "../../services/api";
 import DataService from "../../services/dataService";
-import { setUser } from "../../store/action/actionBundle";
+import {
+  setUser,
+  getUserShippings,
+  getOrderHistory
+} from "../../store/action/actionBundle";
 
 class Login extends Component {
   constructor(props) {
@@ -34,7 +38,8 @@ class Login extends Component {
     })
       .then(user => {
         this.props.setUser(user);
-        DataService.setLoggedUser(user);
+        this.props.getUserShippingList(user);
+        this.props.getOrderHistory(user.id);
         this.props.history.push("/");
       })
 
@@ -110,7 +115,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setUser: user => dispatch(setUser(user))
+    setUser: user => dispatch(setUser(user)),
+    getUserShippingList: user => dispatch(getUserShippings(user)),
+    getOrderHistory: id => dispatch(getOrderHistory(id))
   };
 };
 

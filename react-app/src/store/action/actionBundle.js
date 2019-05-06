@@ -3,5 +3,9 @@ export {
   getProducts,
   setProductToCart,
   removeProductFromCart,
-  getOrderHistory
+  getOrderHistory,
+  clearCartItems,
+  getUsers,
+  getUserShippings,
+  getShippings
 } from "./actions";

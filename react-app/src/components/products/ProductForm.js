@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import "../../App.css";
 import API from "../../services/api";
 
@@ -14,25 +15,20 @@ class ProductForm extends Component {
     for (let key of data.keys()) {
       const value = form.elements[key].value;
       // fyller formData
-      formData[key] = value;
+      if (key === "file") {
+        formData[key] = form.elements[key].files[0];
+      } else {
+        formData[key] = value;
+      }
     }
 
-    formData["rate"] = 0;
-    const merchant = {
-      fristName: "Salem",
-      lastName: "ali",
-      email: "idris@olsomet.no",
-      passWord: "idris"
-    };
-    // body ekseserer begge product og merchant
-    const body = {
-      product: formData,
-      merchant
-    };
+    const user = this.props.user;
+    const merchant_id = user ? user.id : 1;
 
-    console.log("data: ", formData);
-    console.log("body to post: ", body);
-    API.postProduct(body)
+    formData["merchant_id"] = merchant_id;
+    console.log("formData:", formData);
+
+    API.postProduct(formData)
       .then(newProduct => this.props.history.push("/products"))
       .catch(err => console.log(err));
   };
@@ -68,6 +64,26 @@ class ProductForm extends Component {
               placeholder="Enter category "
             />
           </div>
+
+          <div className="form-group">
+            <label>Price </label>
+            <input
+              name="price"
+              type="text"
+              className="form-control"
+              placeholder="Enter price "
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Image </label>
+            <input
+              name="file"
+              type="file"
+              className="form-control"
+              placeholder="Upload image "
+            />
+          </div>
           <button className="btn btn-primary">Submit</button>
         </form>
       </div>
@@ -75,4 +91,18 @@ class ProductForm extends Component {
   }
 }
 
-export default ProductForm;
+const mapStateToProps = state => {
+  return {
+    cartItems: state.rootReducer.cartItems,
+    user: state.rootReducer.user
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {};
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProductForm);

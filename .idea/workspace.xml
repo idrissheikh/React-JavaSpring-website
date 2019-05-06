@@ -2,85 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4495a0a-ef15-4aa0-b14b-44678b0a1737" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_h2database_h2_1_4_197.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_9_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_9_10.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_16.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_16.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_16.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_3_7_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_14_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_25.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_1_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_1_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_1_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_1_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_1_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_1_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_1_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_1_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_1_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_1_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_1_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_1_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_1_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_1_3_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_1_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_1_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_1_4_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_1_4_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_test_5_1_4_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_1_4_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_1_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_5_1_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_1_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_1_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_1_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_1_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_1_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_1_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_5_1_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_1_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_1_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_1_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_1_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/src/main/java/no/oslomet/demo/ProductsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/products/src/main/java/no/oslomet/demo/ProductsApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/src/main/java/no/oslomet/demo/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/products/src/main/java/no/oslomet/demo/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/src/main/java/no/oslomet/demo/model/Merchant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/src/main/java/no/oslomet/demo/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/products/src/main/java/no/oslomet/demo/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/src/main/java/no/oslomet/demo/repository/MerchantRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/src/main/java/no/oslomet/demo/service/MerchantService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/src/main/java/no/oslomet/demo/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/products/src/main/java/no/oslomet/demo/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/products/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/Home.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/Nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/Users/AdminPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/Users/AdminPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/Users/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/Users/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/Users/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/Users/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/Users/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/Users/UserProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/cart/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/cart/Cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/cart/CheckoutForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/cart/CheckoutForm.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/cart/OrderHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/cart/OrderHistory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/cart/ShippingfForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/cart/ShippingfForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/cart/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/cart/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/products/ProductForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/products/ProductForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/products/ProductList.css" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/products/ProductList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/products/ProductList.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/products/ProductList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/products/Products.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/components/products/Products.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/components/test.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/react-app/src/services/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/services/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/store/action/actionBundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/store/action/actionBundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/store/action/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/store/action/actionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/store/action/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/store/action/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/store/configStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/store/configStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-app/src/store/reducer/RootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/react-app/src/store/reducer/RootReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shipping/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/shipping/src/main/resources/application.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/login-microservice/target/" />
     <ignored path="$PROJECT_DIR$/Server-product-final-Project/target/" />
@@ -129,10 +52,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shipping/src/main/java/no/oslomet/shipping/model/Shipping.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="405">
               <caret line="27" column="88" selection-start-line="27" selection-start-column="84" selection-end-line="27" selection-end-column="88" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -142,19 +65,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login-microservice/src/main/java/no/oslomet/loginmicroservice/model/User.java">
+        <entry file="file://$PROJECT_DIR$/shipping/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+            <state relative-caret-position="30">
+              <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/orders/src/main/java/no/oslomet/orders/OrdersApplication.java">
+        <entry file="file://$PROJECT_DIR$/shipping/src/main/java/no/oslomet/shipping/ShippingApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state relative-caret-position="270">
+              <caret line="25" column="101" selection-start-line="25" selection-start-column="101" selection-end-line="25" selection-end-column="101" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shipping/src/main/java/no/oslomet/shipping/ServletInitializer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -180,23 +112,19 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/orders/src/main/java/no/oslomet/orders/service/OrdersService.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/shipping/src/main/java/no/oslomet/shipping/service/ShippingService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
+            <state relative-caret-position="-341">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#614#615#0" expanded="true" />
+                <element signature="e#1396#1397#0" expanded="true" />
+                <element signature="e#1445#1446#0" expanded="true" />
+                <element signature="e#1502#1503#0" expanded="true" />
+                <element signature="e#1558#1559#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/orders/src/main/java/no/oslomet/orders/ServletInitializer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -291,51 +219,6 @@
               <item name="final-project-dave3615" type="b2602c69:ProjectViewProjectNode" />
               <item name="final-project-dave3615" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="final-project-dave3615" type="b2602c69:ProjectViewProjectNode" />
-              <item name="final-project-dave3615" type="462c0819:PsiDirectoryNode" />
-              <item name="shipping" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="final-project-dave3615" type="b2602c69:ProjectViewProjectNode" />
-              <item name="final-project-dave3615" type="462c0819:PsiDirectoryNode" />
-              <item name="shipping" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="final-project-dave3615" type="b2602c69:ProjectViewProjectNode" />
-              <item name="final-project-dave3615" type="462c0819:PsiDirectoryNode" />
-              <item name="shipping" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="final-project-dave3615" type="b2602c69:ProjectViewProjectNode" />
-              <item name="final-project-dave3615" type="462c0819:PsiDirectoryNode" />
-              <item name="shipping" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="final-project-dave3615" type="b2602c69:ProjectViewProjectNode" />
-              <item name="final-project-dave3615" type="462c0819:PsiDirectoryNode" />
-              <item name="shipping" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="shipping" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="final-project-dave3615" type="b2602c69:ProjectViewProjectNode" />
-              <item name="final-project-dave3615" type="462c0819:PsiDirectoryNode" />
-              <item name="shipping" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="shipping" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -350,7 +233,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557163537902" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557166873428" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -500,16 +383,23 @@
       <workItem from="1557006196329" duration="1881000" />
       <workItem from="1557055680597" duration="1557000" />
       <workItem from="1557078347300" duration="473000" />
-      <workItem from="1557078979149" duration="9087000" />
+      <workItem from="1557078979149" duration="10276000" />
     </task>
+    <task id="LOCAL-00001" summary="added user profile functionality">
+      <created>1557163924631</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1557163924631</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71505000" />
+    <option name="totallyTimeSpent" value="72694000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Capture Tool" order="1" />
@@ -626,13 +516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shipping/src/main/java/no/oslomet/shipping/ShippingApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="25" column="101" selection-start-line="25" selection-start-column="101" selection-end-line="25" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/products/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -648,13 +531,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shipping/src/main/java/no/oslomet/shipping/ServletInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -721,13 +597,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shipping/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login-microservice/src/main/java/no/oslomet/loginmicroservice/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -753,21 +622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="885">
           <caret line="81" column="47" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shipping/src/main/java/no/oslomet/shipping/service/ShippingService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#614#615#0" expanded="true" />
-            <element signature="e#1396#1397#0" expanded="true" />
-            <element signature="e#1445#1446#0" expanded="true" />
-            <element signature="e#1502#1503#0" expanded="true" />
-            <element signature="e#1558#1559#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -871,10 +725,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shipping/src/main/java/no/oslomet/shipping/model/Shipping.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
+        <state relative-caret-position="405">
           <caret line="27" column="88" selection-start-line="27" selection-start-column="84" selection-end-line="27" selection-end-column="88" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shipping/src/main/java/no/oslomet/shipping/ShippingApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="25" column="101" selection-start-line="25" selection-start-column="101" selection-end-line="25" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shipping/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shipping/src/main/java/no/oslomet/shipping/ServletInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shipping/src/main/java/no/oslomet/shipping/service/ShippingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-341">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#614#615#0" expanded="true" />
+            <element signature="e#1396#1397#0" expanded="true" />
+            <element signature="e#1445#1446#0" expanded="true" />
+            <element signature="e#1502#1503#0" expanded="true" />
+            <element signature="e#1558#1559#0" expanded="true" />
           </folding>
         </state>
       </provider>

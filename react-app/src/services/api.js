@@ -2,7 +2,7 @@ export default class API {
   // returns Promise
   // .then .catch
   static getAllProducts() {
-    let url = "http://localhost:9997/products";
+    let url = "http://104.248.52.255:9997/products";
     return new Promise((resolve, reject) => {
       fetch(url)
         .then(res => res.json())
@@ -12,7 +12,7 @@ export default class API {
   }
 
   static getAllProductById(id) {
-    let url = "http://localhost:9997/products/" + id;
+    let url = "http://104.248.52.255:9997/products/" + id;
     return new Promise((resolve, reject) => {
       fetch(url)
         .then(res => res.json())
@@ -22,7 +22,7 @@ export default class API {
   }
 
   static getAllMyProduct(id) {
-    let url = "http://localhost:9997/myproducts/" + id;
+    let url = "http://104.248.52.255:9997/myproducts/" + id;
     return new Promise((resolve, reject) => {
       fetch(url)
         .then(res => res.json())
@@ -32,7 +32,7 @@ export default class API {
   }
 
   static postProduct(body) {
-    let url = "http://localhost:9997/products";
+    let url = "http://104.248.52.255:9997/products";
     let formData = new FormData();
     for (let key of Object.keys(body)) {
       formData.append(key, body[key]);
@@ -50,7 +50,7 @@ export default class API {
 
   static putProduct(body) {
     console.log("received product: ", body);
-    let url = "http://localhost:9997/products/" + body.product.id;
+    let url = "http://104.248.52.255:9997/products/" + body.product.id;
     console.log("url: ", url);
     return new Promise((resolve, reject) => {
       fetch(url, {
@@ -67,7 +67,7 @@ export default class API {
   }
 
   static deleteProduct(id) {
-    let url = "http://localhost:9997/products/" + id;
+    let url = "http://104.248.52.255:9997/products/" + id;
     return new Promise((resolve, reject) => {
       fetch(url, {
         method: "DELETE" // or 'PUT'
@@ -78,7 +78,7 @@ export default class API {
   }
 
   static getUserById(id) {
-    let url = "http://localhost:9090/users/" + id;
+    let url = "http://104.248.52.255:9090/users/" + id;
     return new Promise((resolve, reject) => {
       fetch(url)
         .then(res => res.json())
@@ -88,7 +88,7 @@ export default class API {
   }
 
   static postUser(newUser) {
-    let url = "http://localhost:9090/signup";
+    let url = "http://104.248.52.255:9090/signup";
     return new Promise((resolve, reject) => {
       fetch(url, {
         method: "POST", // or 'PUT'
@@ -104,7 +104,7 @@ export default class API {
   }
 
   static getshippingById(id) {
-    let url = "http://localhost:9998/shipping/" + id;
+    let url = "http://104.248.52.255:9998/shipping/" + id;
     return new Promise((resolve, reject) => {
       fetch(url)
         .then(res => res.json())
@@ -114,7 +114,7 @@ export default class API {
   }
 
   static postShipping(shipping) {
-    let url = "http://localhost:9998/shipping";
+    let url = "http://104.248.52.255:9998/shipping";
     return new Promise((resolve, reject) => {
       fetch(url, {
         method: "POST", // or 'PUT'
@@ -131,7 +131,7 @@ export default class API {
 
   static updateShipping(shippingId, userId, shipping) {
     let url =
-      "http://localhost:9998/updateShipping/id=" +
+      "http://104.248.52.255:9998/updateShipping/id=" +
       shippingId +
       "&user_id=" +
       userId;
@@ -150,7 +150,7 @@ export default class API {
   }
 
   static putShipping(shipping) {
-    let url = "http://localhost:9998/shipping/" + shipping.id;
+    let url = "http://104.248.52.255:9998/shipping/" + shipping.id;
     return new Promise((resolve, reject) => {
       fetch(url, {
         method: "PUT", // or 'PUT'
@@ -166,7 +166,7 @@ export default class API {
   }
 
   static decreaseProductQuantity(id) {
-    let url = "http://localhost:9997/products/decrease/" + id;
+    let url = "http://104.248.52.255:9997/products/decrease/" + id;
     return new Promise((resolve, reject) => {
       fetch(url)
         .then(res => res.json())
@@ -177,7 +177,7 @@ export default class API {
 
   static postOrder(body) {
     return new Promise((resolve, reject) => {
-      let url = "http://localhost:7070/orders";
+      let url = "http://104.248.52.255:7070/orders";
       fetch(url, {
         method: "POST", // or 'PUT'
         body: JSON.stringify(body), // data can be `string` or {object}!
@@ -193,7 +193,7 @@ export default class API {
 
   static getOrderHistoryByUser(userId) {
     console.log("recieved id: " + userId);
-    let url = `http://localhost:7070/orderHistory/user/${userId}`;
+    let url = `http://104.248.52.255:7070/orderHistory/user/${userId}`;
     return new Promise((resolve, reject) => {
       fetch(url)
         .then(res => res.json())
@@ -224,7 +224,7 @@ export default class API {
   }
 
   static deleteUser(id) {
-    let url = "http://localhost:9090/users/" + id;
+    let url = "http://104.248.52.2559090/users/" + id;
     return new Promise((resolve, reject) => {
       fetch(url, {
         method: "DELETE" // or 'PUT'
@@ -235,7 +235,7 @@ export default class API {
   }
 
   static updateUser(user) {
-    let url = "http://localhost:9090/user/" + user.id;
+    let url = "http://104.248.52.255:9090/user/" + user.id;
     return new Promise((resolve, reject) => {
       fetch(url, {
         method: "PUT", // or 'PUT'
@@ -251,7 +251,7 @@ export default class API {
   }
 
   static setRating(productId, numberOfRatings, user_id) {
-    let url = `http://localhost:9997/products/rate/${productId}/${numberOfRatings}/${user_id}`;
+    let url = `http://104.248.52.255:9997/products/rate/${productId}/${numberOfRatings}/${user_id}`;
     return new Promise((resolve, reject) => {
       fetch(url)
         .then(res => res.json())
@@ -261,7 +261,7 @@ export default class API {
   }
 
   static getAllUsers() {
-    let url = "http://localhost:9090/users/";
+    let url = "http://104.248.52.255:9090/users/";
     return new Promise((resolve, reject) => {
       fetch(url)
         .then(res => res.json())
@@ -274,7 +274,7 @@ export default class API {
   }
 
   static changePassword(id, password) {
-    let url = "http://localhost:9090/users/changePassword";
+    let url = "http://104.248.52.255:9090/users/changePassword";
     const formData = new FormData();
     formData.append("id", id);
     formData.append("password", password);
@@ -303,7 +303,7 @@ export default class API {
   }
 
   static getShippings() {
-    let url = "http://localhost:9998/shipping/";
+    let url = "http://104.248.52.255:9998/shipping/";
     return new Promise((resolve, reject) => {
       fetch(url)
         .then(res => res.json())
